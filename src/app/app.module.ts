@@ -9,6 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import{ YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -16,8 +18,13 @@ import { AppComponent } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
+    YoutubeVideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+
+export class AppModule {
+  constructor(private youtube: YoutubeVideoPlayer){}
+
+}

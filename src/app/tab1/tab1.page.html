@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1 Update
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,34 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card class="exercise1">
+    <img src="/assets/exercise1.jpg" alt="Picture not available"/>
+    <!--<ion-button (click)="openMyVideo('https://youtu.be/DHMqRnzEwGM')">Play Video</ion-button>-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <ion-card-header>
+      <ion-card-title>Exercise</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-card class="exercise2">
+    <img src="/assets/exercise2.jpg" alt="Picture not available"/>
+    <ion-card-header>
+      <ion-card-title>Exercise</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-card class="exercise3">
+    <img src="/assets/exercise3.jpg" alt="Picture not available"/>
+    <ion-card-header>
+      <ion-card-title>Exercise</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
 </ion-content>
