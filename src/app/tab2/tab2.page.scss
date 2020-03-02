@@ -1,3 +1,70 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+ion-content {
+  --background: url(/assets/avatar.jpg) no-repeat top center/cover fixed, #fff;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+ion-toolbar {
+  --background: transparent;
+}
+.card {
+  margin: 0 auto;
+  --background: transparent;
+  height: 270px;
+  --border: transparent;
+
+  .header {
+      height: 200px;
+
+      .avatar {
+          width: 160px;
+          height: 150px;
+          position: relative;
+          margin: 0 auto;
+
+          img {
+              display: block;
+              border-radius: 50%;
+              position: absolute;
+              top: 20px;
+              bottom: 20px;
+              border: 8px solid black;
+              background-color: #fff;
+          }
+      }
+  }
+}
+.card-body {
+  background-color: #ffffff;
+  padding: 30px;
+  height: calc(100vh - (200px + 56px));
+  overflow: hidden;
+
+  .user-meta {
+      padding-top: 40px;
+
+      .username {
+          font-size: 24px;
+          font-weight: 600;
+          color: #303940;
+      }
+
+      .location {
+          width: 200px;
+          font-size: 90%;
+          color: #949ea6;
+          text-transform: uppercase;
+          margin: 0 auto;
+          bottom: 5px;
+
+          .locationlabel{
+            width: 10px;
+            padding-bottom: 5px;
+          }
+      }
+  }
+}
