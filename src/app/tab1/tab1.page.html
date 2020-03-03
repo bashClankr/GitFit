@@ -1,8 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <br>
+    <ion-searchbar id="input"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -12,24 +11,31 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card class="exercise1">
+  <ion-card id="militaryPress" class="weights" (click)="expandItem()">
     <img src="/assets/exercise1.jpg" alt="Picture not available"/>
-    <!--<ion-button (click)="openMyVideo('https://youtu.be/DHMqRnzEwGM')">Play Video</ion-button>-->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   
+    <ion-card *ngIf="item">
+      <iframe src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h3>This exercise works the shoulders and arms</h3>
+    </ion-card>
+    
     <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
+      <ion-card-title>Military Press</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card class="exercise2">
+  <ion-card id="abCrunch" class="abs">
     <img src="/assets/exercise2.jpg" alt="Picture not available"/>
+    <ion-card *ngIf="item">
+      <h3>This exercise works the abs</h3>
+    </ion-card>
     <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
+      <ion-card-title>Ab Crunch</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card class="exercise3">
+  <ion-card id="sideStretch" class="stretch">
     <img src="/assets/exercise3.jpg" alt="Picture not available"/>
     <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
+      <ion-card-title>Side Stretch</ion-card-title>
     </ion-card-header>
   </ion-card>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
