@@ -7,31 +7,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-card class="exercise1">
-    <img src="/assets/exercise1.jpg" alt="Picture not available"/>
-    <!--<ion-button (click)="openMyVideo('https://youtu.be/DHMqRnzEwGM')">Play Video</ion-button>-->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card class="exercise2">
-    <img src="/assets/exercise2.jpg" alt="Picture not available"/>
-    <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card class="exercise3">
-    <img src="/assets/exercise3.jpg" alt="Picture not available"/>
-    <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+  <br>
+  <ion-list *ngFor="let item of Exercises">
+    <ion-card class="exercise">
+      <ion-img [src]="item.image"></ion-img>
+      
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <ion-card-header>
+        <ion-card-title><p>{{item.name}}</p></ion-card-title>
+      </ion-card-header>
+      <ion-segment color="tertiary" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="favorites">
+          <ion-label>Favorite</ion-label>
+          <ion-icon name="heart"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card>
+
+  </ion-list>
+ 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"

@@ -9,23 +9,43 @@ import { IonInfiniteScroll } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 
-@Component({
-  selector: 'infinite-scroll-example',
-  templateUrl: 'infinite-scroll-example.html',
-  styleUrls: ['./infinite-scroll-example.css']
-})
+
 
 export class Tab1Page {
 
+  @ViewChild("IonInfiniteScroll", {static: false} ) infiniteScroll: IonInfiniteScroll;
+  Exercises: any;
+
   constructor(
     private youtube: YoutubeVideoPlayer
-  ) {}
-  
+  ) {
+    this.Exercises = [{"image": "/assets/exercise2.jpg", "name": "Weight workout" },{"image": "/assets/exercise2.jpg", "name": "Ab workout"}, 
+    {"image": "/assets/exercise3.jpg","name": "Yoga"},{"image": "/assets/exercise1.jpg", "name": "no idea"}];
 
+  
+  }
+
+  loadData(event){
+    setTimeout(() => {
+      console.log('Done');
+      
+      event.target.complete();
+
+      if(this.Exercises.length==5){
+        event.target.disabled = true;
+      }
+    },500);
+  }
+  
+  segmentChanged(event){
+
+  }
   openMyVideo(id){
     this.youtube.openVideo(id);
   }
-}
+ 
+  }
+
 
 
 
