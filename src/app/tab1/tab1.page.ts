@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { YoutubeVideoPlayer} from '@ionic-native/youtube-video-player/ngx';
 import { R3TargetBinder } from '@angular/compiler';
 @Component({
@@ -9,7 +9,7 @@ import { R3TargetBinder } from '@angular/compiler';
 
 export class Tab1Page {
 
-  item =false;
+  item =""
   constructor(
     private youtube: YoutubeVideoPlayer
   ) {}
@@ -18,14 +18,21 @@ export class Tab1Page {
     this.youtube.openVideo(id);
   }
 
-  expandItem(){
+  expandItem(tes){
     
-    if(this.item ==false){
-      this.item=true
+    console.log(tes);
+    if(this.item ==""){
+      this.item=tes
+      
     }
     else{
-      this.item=false;
+      this.item="";
     }
+    
+  }
+  search(){ 
+    var test= (<HTMLInputElement>document.getElementById("search")).value;
+    console.log(test);
   }
 }
 
