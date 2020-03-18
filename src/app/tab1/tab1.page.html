@@ -1,8 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <br>
+    <ion-searchbar id="search" (ionInput)="search()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -12,31 +11,54 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card class="exercise1">
+  <ion-card id="militaryPress" class="weights" (click)="expandItem('militaryPress')">
     <img src="/assets/exercise1.jpg" alt="Picture not available"/>
-    <!--<ion-button (click)="openMyVideo('https://youtu.be/DHMqRnzEwGM')">Play Video</ion-button>-->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   
+    <ion-card *ngIf="item=='militaryPress'">
+      <iframe src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h3>The military press is a variation of the overhead press weight training exercise using very strict form and no pre-movement momentum.</h3>
+    </ion-card>
+    
     <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
+      <ion-card-title>Military Press</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card class="exercise2">
+  <ion-card (click)="expandItem('abCrunch')" id="abCrunch" class="abs">
     <img src="/assets/exercise2.jpg" alt="Picture not available"/>
+    <ion-card *ngIf="item=='abCrunch'">
+      <iframe src="https://www.youtube.com/embed/_M2Etme-tfE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h3>The abdominal crunch is one of the most common exercises used to train the abdominal muscles. The abdominal crunch targets the abdominal muscles, which are part of your core muscle group. The stronger your core muscles, the easier it is to do most physical activities and sports.</h3>
+    </ion-card>
     <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
+      <ion-card-title>Ab Crunch</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-card class="exercise3">
+  <ion-card (click)="expandItem('sideStretch')" id="sideStretch" class="stretch">
     <img src="/assets/exercise3.jpg" alt="Picture not available"/>
+    <ion-card *ngIf="item=='sideStretch'">
+      <iframe src="https://www.youtube.com/embed/J1j0ZU_aOnk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h3>The seated side stretch is
+        great for swimmers and office workers to help stretch the low back and
+        open up space in the ribs.</h3>
+    </ion-card>
     <ion-card-header>
-      <ion-card-title>Exercise</ion-card-title>
+      <ion-card-title>Side Stretch</ion-card-title>
     </ion-card-header>
   </ion-card>
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll threshold="100px" >
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
       loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.11.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
   
 </ion-content>
