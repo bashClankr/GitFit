@@ -18,6 +18,15 @@
       <ion-label color="white" slot="start">Recommendations</ion-label>
       <ion-toggle slot="end" name="recommendations" checked></ion-toggle>
     </ion-item>
+    <ion-item>
+      <ion-label color="white" slot="start">Change Picture</ion-label>
+      <ion-button (click)="photoAlert()">Upload Photo</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label color="white" slot="start">Edit Profile Details</ion-label>
+      <ion-button (click)="editAlert()">Edit Details</ion-button>
+    </ion-item>
+
   
    
   </ion-list>

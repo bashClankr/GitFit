@@ -33,6 +33,7 @@ export class Tab1Page {
   search(){ 
     var test= (<HTMLInputElement>document.getElementById("search")).value;
     console.log(test);
+    alert("App will search and display results maching: " + test);
   }
 }
 

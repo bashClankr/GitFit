@@ -9,4 +9,10 @@ export class Tab3Page {
 
   constructor() {}
 
+  photoAlert(){
+    alert("Will allow user to upload photo from their own device");
+  }
+  editAlert(){
+    alert("Will allow user to change their name and location on the account page");
+  }
 }
