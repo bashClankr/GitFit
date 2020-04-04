@@ -13,7 +13,8 @@ export class Tab1Page {
 
   item =""
   constructor(
-    private youtube: YoutubeVideoPlayer
+    private youtube: YoutubeVideoPlayer,
+    private key: ""
   ) {}
 
   openMyVideo(id){
