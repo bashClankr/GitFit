@@ -19,35 +19,11 @@ export class AppComponent {
     private statusBar: StatusBar,
     private router: Router
   ) {
+    
+    
     this.initializeIonic();
-    //firebase variables for firestore
-    const firebase = require("firebase/app");
-    const admin = require('firebase-admin');
-    const functions = require('firebase-functions');
+   
     
-    
-    var firebaseConfig ={
-      apiKey: "AIzaSyC1tIGaZe7OEAYpmn0sm8BdxKSobEzoxVs",
-      authDomain: "gitfit-3d6ec.firebaseapp.com",
-      databaseURL: "https://gitfit-3d6ec.firebaseio.com",
-      projectId: "gitfit-3d6ec",
-      storageBucket: "gitfit-3d6ec.appspot.com",
-      messagingSenderId: "118531700924",
-      appId: "1:118531700924:web:538588aaa3eaf7de49f8b9"
-    }
-    // Required for side-effects
-    require("firebase/auth");
-    require("firebase/firestore");
-    require("firebase/app");
-
-    firebase.initializeApp(firebaseConfig);
-    let db = admin.firestore();
-    var workoutRef = db.collection('Workouts');
-    let setAb = workoutRef.doc('Ab Workout').set({
-      Description: "hello world"
-    });
-    console.log(setAb);
-  
     
     
   }
@@ -62,5 +38,6 @@ export class AppComponent {
     
   }
  
-
+  
+  
 }
