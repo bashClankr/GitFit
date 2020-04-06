@@ -8,13 +8,13 @@
   <h1 id ='title'>Welcome to GitFit!</h1>
   <div id= "creds">
     <ion-item>
-      <ion-label stacked>Username</ion-label>
-      <ion-input placeholder="Enter Email"></ion-input>
+      <ion-label stacked>Email</ion-label>
+      <ion-input placeholder="Enter Email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label stacked>Password</ion-label>
-      <ion-input type="password" placeholder='Enter Password'></ion-input>
+      <ion-input type="password" placeholder='Enter Password' [(ngModel)]="user.password"></ion-input>
     </ion-item>
   </div>
  
@@ -23,7 +23,7 @@
       SIGN UP
     </ion-button>
 
-    <ion-button ion-button color="secondary" (click)="signIn()">
+    <ion-button ion-button color="secondary" (click)="login()">
       SIGN IN
     </ion-button>
   </div>

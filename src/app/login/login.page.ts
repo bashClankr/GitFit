@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+
+interface test{
+  email?:string;
+  password?:string;
+}
 
 
 @Component({
@@ -9,17 +15,30 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router ) { }
+  user:test={}
+
+  constructor(private router: Router,public afAuth :AngularFireAuth ) { }
 
   ngOnInit() {
   }
 
+  async login(){
+    await this.afAuth.auth.signInWithEmailAndPassword(
+      this.user.email, this.user.password
+      
+    )
+    if(this.afAuth.auth.currentUser){
+      this.router.navigateByUrl('/tabs/tab1');
+    }else{
+      alert("invalid");
+    }
+  }
   signUp(){
-    alert("Users will be able to make an account with a email and password");
+    this.router.navigateByUrl('/signup');
   }
 
   signIn(){
-    this.router.navigateByUrl('/tabs/tab1');
+    this.router.navigateByUrl('/signup');
   }
 
 }

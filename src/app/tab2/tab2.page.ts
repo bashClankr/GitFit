@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-tab2',
@@ -7,9 +9,12 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
 
-  favoriteAlert(){
-    alert("Upon clicking, user will be displayed a list of all workouts they have favorited from the Home Tab.")
+  
+  constructor(public afAuth :AngularFireAuth) {}
+
+  ngOnInit(){
+    const user = this.afAuth.auth.currentUser.displayName
+    console.log(user);
   }
 }

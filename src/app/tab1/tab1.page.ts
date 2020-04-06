@@ -22,6 +22,7 @@ export class Tab1Page implements OnInit{
     constructor(public userService: UserService, private youtube: YoutubeVideoPlayer) {}
 
     item =""
+    test="blah"
 
 
     ngOnInit() {
