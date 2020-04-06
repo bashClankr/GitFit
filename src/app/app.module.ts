@@ -6,19 +6,16 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import{ YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
-import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
-//firebase imports
-//  firebase imports, remove what you don't require
+
 import { AngularFireModule } from '@angular/fire';
-//import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-//import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,16 +23,18 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    /*AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,*/
+    AppRoutingModule,
     
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     YoutubeVideoPlayer,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    UserService
   ],
   bootstrap: [AppComponent]
 })

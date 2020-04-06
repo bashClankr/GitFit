@@ -4,7 +4,6 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase/app';
 
 
 @Component({
@@ -19,25 +18,14 @@ export class AppComponent {
     private statusBar: StatusBar,
     private router: Router
   ) {
-    
-    
-    this.initializeIonic();
-   
-    
-    
-    
+    this.initializeApp();
   }
-  
-  
-  initializeIonic() {
+
+  initializeApp() {
     this.platform.ready().then(() => {
       this.router.navigateByUrl('/login');
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    
   }
- 
-  
-  
 }

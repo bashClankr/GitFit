@@ -6,113 +6,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-card id="militaryPress" class="weights" (click)="expandItem('militaryPress')">
-    <img src="/assets/exercise1.jpg" alt="Picture not available"/>
-   
-    <ion-card *ngIf="item=='militaryPress'">
-      <iframe src="https://www.youtube.com/embed/DHMqRnzEwGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h3></h3>
-      <ion-icon name='star'></ion-icon> Favorite
-    </ion-card>
+
+  <ion-card *ngFor="let item of workouts">
+    <span>
+      <ion-card>
+        <img src="/assets/exercise1.jpg" alt="Picture not available"/>
+        <ion-card>
+          <h3>{{item.Description}}</h3>
+          <div class="btn">
+            <ion-button (click)="favoriteAlert()">
+              <ion-icon name='star' slot="start"></ion-icon>
+              Favorite
+            </ion-button>
+          </div>
+          
+        </ion-card>
+        
+        <ion-card-header>
+          <ion-card-title>{{item.Name}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </span>
+  </ion-card>
     
-    <ion-card-header>
-      <ion-card-title>Military Press</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card (click)="expandItem('abCrunch')" id="abCrunch" class="abs">
-    <img src="/assets/exercise2.jpg" alt="Picture not available"/>
-    <ion-card *ngIf="item=='abCrunch'">
-      <iframe src="https://www.youtube.com/embed/_M2Etme-tfE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h3>The abdominal crunch is one of the most common exercises used to train the abdominal muscles. The abdominal crunch targets the abdominal muscles, which are part of your core muscle group. The stronger your core muscles, the easier it is to do most physical activities and sports.</h3>
-      <ion-icon name='star'></ion-icon> Favorite
-    </ion-card>
-    <ion-card-header>
-      <ion-card-title>Ab Crunch</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-  <ion-card (click)="expandItem('sideStretch')" id="sideStretch" class="stretch">
-    <img src="/assets/exercise3.jpg" alt="Picture not available"/>
-    <ion-card *ngIf="item=='sideStretch'">
-      <iframe src="https://www.youtube.com/embed/J1j0ZU_aOnk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h3>The seated side stretch is
-        great for swimmers and office workers to help stretch the low back and
-        open up space in the ribs.</h3>
-        <ion-icon name='star'></ion-icon> Favorite
-    </ion-card>
-    <ion-card-header>
-      <ion-card-title>Side Stretch</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
-
-  <ion-card (click)="expandItem('squat')" id="squat" class="weights">
-    <img src="/assets/squat.jpeg" alt="Picture not available"/>
-    <ion-card *ngIf="item=='squat'">
-      <iframe src="https://www.youtube.com/embed/nhoikoUEI8U" 
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h3>A squat is a strength exercise in which the trainee lowers his or 
-        her hips from a standing position and then stands back up. </h3>
-        <ion-icon name='star'></ion-icon> Favorite
-    </ion-card>
-    <ion-card-header>
-      <ion-card-title>Squat</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
-
-  <ion-card (click)="expandItem('pullUp')" id="pullUp" class="arms">
-    <img src="/assets/pullUp.jpeg" alt="Picture not available"/>
-    <ion-card *ngIf="item=='pullUp'">
-      <iframe src="https://www.youtube.com/embed/jFmCrA6fo78" 
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h3>A pull-up is an upper-body compound pulling exercise. Although it can be performed with any grip, in recent years some have used the term to refer more 
-        specifically to a pull-up performed with a palms-forward position. </h3>
-        <ion-icon name='star'></ion-icon> Favorite
-    </ion-card>
-    <ion-card-header>
-      <ion-card-title>Pull Up</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card (click)="expandItem('calf')" id="calf" class="legs">
-    <img src="/assets/calf.jpeg" alt="Picture not available"/>
-    <ion-card *ngIf="item=='calf'">
-      <iframe src="https://www.youtube.com/embed/GDK7Jd8Q2ak" 
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h3>Calf raises are a method of exercising the gastrocnemius, tibialis posterior and soleus muscles of the lower leg. 
-        The movement performed is plantar flexion, a.k.a. ankle extension.</h3>
-        <ion-icon name='star'></ion-icon> Favorite
-    </ion-card>
-    <ion-card-header>
-      <ion-card-title>Calf Raise</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
-  
-  <ion-infinite-scroll threshold="100px" >
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="More data coming soon">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-
  
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="/__/firebase/7.13.2/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-  <!-- Add Firebase products that you want to use 
-  <script src="/__/firebase/7.13.2/firebase-auth.js"></script>-->
-  <script src="/__/firebase/7.13.2/firebase-firestore.js"></script>
-
-  <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
-  
 </ion-content>

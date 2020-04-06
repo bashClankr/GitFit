@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ConditionalExpr } from '@angular/compiler';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore} from '@angular/fire/firestore';
+import { UserService } from '../user.service';
+import { ToastController } from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-tab3',
@@ -6,16 +13,16 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
-  constructor() {}
-
+  
+ constructor(){}
+ 
   photoAlert(){
     alert("Will allow user to upload photo from their own device");
   }
-  editAlert(){
-    alert("Will allow user to change their name and location on the account page");
+  editProfile(){
+    alert("Will allow user to change image and name on their profile")
   }
   aboutAlert(){
-    alert("Austin: \n*Front page card functionality\n*Detailed workouts\n*Alerts and buttons for future functionality\n*Homepage layout\n*Hosted on firebase\n \nIsabella: \n*Made array of card/picures to display\n*Tab design/information\n*Account page\n*Homepage layout")
+    alert("Austin: \n\n \nIsabella: \n*Connected to firestore database\n*Pulled data from database and displayed using for loop on homepage\n*Followed Ionic 4 CRUD Operations tutorial")
   }
 }
