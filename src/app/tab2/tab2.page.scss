@@ -39,7 +39,7 @@ ion-toolbar {
   }
 }
 .card-body {
-  background-color: #ffffff;
+  background-color: gray;
   padding: 30px;
   height: calc(100vh - (200px + 56px));
   overflow: hidden;
@@ -50,20 +50,21 @@ ion-toolbar {
       .username {
           font-size: 24px;
           font-weight: 600;
-          color: #303940;
+          color: black;
       }
 
       .location {
           width: 200px;
           font-size: 90%;
-          color: #949ea6;
+          color: black;
           text-transform: uppercase;
           margin: 0 auto;
-          bottom: 5px;
+          margin-bottom: auto;
 
           .locationlabel{
             width: 10px;
             padding-bottom: 5px;
+            color: black;
           }
       }
   }

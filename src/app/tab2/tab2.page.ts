@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class Tab2Page {
 
   constructor() {}
-  handleClick(event: Event){
-    console.log('Click', event)
+
+  favoriteAlert(){
+    alert("Upon clicking, user will be displayed a list of all workouts they have favorited from the Home Tab.")
   }
 }

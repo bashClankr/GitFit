@@ -11,15 +11,30 @@ import { AppComponent } from './app.component';
 
 import{ YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { UserService } from './user.service';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
     YoutubeVideoPlayer,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    UserService
   ],
   bootstrap: [AppComponent]
 })

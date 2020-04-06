@@ -11,21 +11,22 @@
   <div class="card">
     <div class="header">
       <div class="avatar">
-        <img src="/assets/joey.jpg" alt="">
+        <img src="/assets/person.jpg" alt="">
       </div>
     </div>
   </div>
   <div class="card-body">
     <div class="user-meta ion-text-center">
-      <h3 class="username">Joey Carlisle</h3>
+      <h3 class="username">John Smith</h3>
       <h5 class="location">
         <ion-label class="locationlabel">
           <ion-icon slot="start" name="pin" size="large"></ion-icon>
         </ion-label>
         
-        Weir Hall</h5>
+        Oxford, MS
+      </h5>
     </div>
-    <ion-button (click)="handleClick($event)" expand="full" color="primary">
+    <ion-button (click)="favoriteAlert()" expand="full">
       <ion-icon slot="start" name="star"></ion-icon>
       Favorites</ion-button>
     
