@@ -25,7 +25,7 @@ export class Tab3Page {
     alert("Will allow user to change image and name on their profile")
   }
   aboutAlert(){
-    alert("Austin: \n\n \nIsabella: \n*Connected to firestore database\n*Pulled data from database and displayed using for loop on homepage\n*Followed Ionic 4 CRUD Operations tutorial")
+    alert("Austin: \n*Set up Firebase Authentication\n*Added Login Page and Sign Up Page\n*Added display name function that can change on account page \n\n \nIsabella: \n*Connected to firestore database\n*Pulled data from database and displayed using for loop on homepage\n*Followed Ionic 4 CRUD Operations tutorial")
   }
   logout(){
     this.afAuth.auth.signOut();
