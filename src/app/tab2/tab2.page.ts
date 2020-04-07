@@ -17,4 +17,8 @@ export class Tab2Page {
     const user = this.afAuth.auth.currentUser.displayName
     console.log(user);
   }
+
+  favoriteAlert(){
+    alert("This button will allow users to see all the workouts they've favorited");
+  }
 }
