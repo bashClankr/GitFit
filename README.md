@@ -3,4 +3,5 @@
 - make admin account to be able to write
 - get full functionality in all areas
 - be able to pull/push new images
+- change the way login/signup look for final presentation
 # GitFit
