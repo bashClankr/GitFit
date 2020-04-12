@@ -46,8 +46,5 @@ export class SignupPage implements OnInit {
     }
 
   }
-  back(){
-    this.router.navigateByUrl('/homepage')
-  }
   }
 

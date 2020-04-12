@@ -33,8 +33,8 @@ export class LoginPage implements OnInit {
       alert("invalid");
     }
   }
-  forgotpassword(){
-    this.router.navigateByUrl('/forgot-password');
+  signUp(){
+    this.router.navigateByUrl('/signup');
   }
 
   signIn(){
