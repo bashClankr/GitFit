@@ -43,7 +43,10 @@ export class LoginPage implements OnInit {
     this.router.navigateByUrl('/signup');
   }
   home(){
-    this.router.navigateByUrl('/homepage')
+    this.router.navigateByUrl('/homepage');
+  }
+  forgot(){
+    this.router.navigateByUrl('/forgot');
   }
   
 

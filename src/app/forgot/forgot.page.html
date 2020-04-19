@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Forgot Password</ion-title>
+    <ion-button (click)="home()"><ion-icon name="home" slot="start"></ion-icon>Home</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="../assets/GitFit.png">
+    <div>
+      <ion-card-title id='title'>Send a Password Reset Link to Your Email</ion-card-title>
+      <ion-card-content>
+        <div id= "creds">
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input placeholder="Enter Email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+        </div>
+    
+        <div id='butts'>
+
+          <ion-button class="align-center" color="secondary"(click)="reset()">
+            FORGOT PASSOWRD
+          </ion-button>
+        </div>
+      </ion-card-content>
+      
+      
+    </div>
+
+ </ion-card>
+    
+  
+
+</ion-content>
