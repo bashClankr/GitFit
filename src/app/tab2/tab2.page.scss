@@ -53,19 +53,10 @@ ion-toolbar {
           color: black;
       }
 
-      .location {
-          width: 200px;
-          font-size: 90%;
-          color: black;
-          text-transform: uppercase;
-          margin: 0 auto;
-          margin-bottom: auto;
-
-          .locationlabel{
-            width: 10px;
-            padding-bottom: 5px;
-            color: black;
-          }
-      }
   }
+}
+.btn{
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

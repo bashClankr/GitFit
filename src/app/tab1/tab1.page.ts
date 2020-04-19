@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
 import { YoutubeVideoPlayer} from '@ionic-native/youtube-video-player/ngx';
 import { R3TargetBinder } from '@angular/compiler';
 import { UserService } from './../user.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
+
+
+//const db = firebase.firestore();
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -17,13 +23,20 @@ export class Tab1Page implements OnInit{
   workoutName: string;
   description: string;
   image: string;
+  
 
 
-    constructor(public userService: UserService, private youtube: YoutubeVideoPlayer) {}
+    constructor(
+      public userService: UserService, 
+      private youtube: YoutubeVideoPlayer,
+      private afAuth: AngularFireAuth
+      ) {}
 
     item =""
     test="blah"
-
+    user1 = this.afAuth.auth;
+    count = 0;
+    
 
     ngOnInit() {
       this.userService.read_Workouts().subscribe(data =>{
@@ -41,42 +54,25 @@ export class Tab1Page implements OnInit{
       });
 
     }
-    CreateRecord() {
-      let record = {};
-      record['Name'] = this.workoutName;
-      record['Description'] = this.description;
-      record['Image'] = this.image;
-      this.userService.create_NewWorkout(record).then(resp => {
-        this.workoutName = "";
-        this.description = undefined;
-        this.image = "";
-        console.log(resp);
-      })
-        .catch(error => {
-          console.log(error);
-        });
+    //Adding workout to favorites
+    faveButton(item){
+      var record ={};
+      var name = item.Name;
+      var descript = item.Description;
+      var image = "image";
+      record['Name'] = name;
+      record['Descript'] = descript;
+      record['Image'] = image;
+      record['Workout'] = true;
+      console.log(record);
+      this.userService.create_Favorite(record, name);
+      if(this.count == 0){
+        this.userService.delete_Favorite('fave1');
+        this.count++;
+      }
+      
     }
-  
-    RemoveRecord(rowID) {
-      this.userService.delete_Workout(rowID);
-    }
-  
-    EditRecord(record) {
-      record.isEdit = true;
-      record.EditName = record.Name;
-      record.EditDescription = record.Description;
-      record.EditImage = record.Image;
-    }
-  
-    UpdateRecord(recordRow) {
-      let record = {};
-      record['Name'] = recordRow.EditName;
-      record['Description'] = recordRow.EditDescription;
-      record['Image'] = recordRow.EditImage;
-      this.userService.update_Workout(recordRow.id, record);
-      recordRow.isEdit = false;
-    }
-  
+    
   
 
     openMyVideo(id){
@@ -101,8 +97,6 @@ export class Tab1Page implements OnInit{
       console.log(test);
       alert("App will search and display results matching: " + test);
     }
-    favoriteAlert(){
-      alert("Will let user favorite this workout and then adds it to their profile, and in their profile on database")
-    }
+    
 }
 
