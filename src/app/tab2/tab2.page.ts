@@ -21,10 +21,12 @@ export class Tab2Page {
   ngOnInit(){
     const user = this.afAuth.auth.currentUser.displayName
     console.log(user);
+    //initializes show to false when page loads so favorites aren't displayed until they ask
     this.show = false;
   }
 
   favoriteAlert(){
+    //on click, show = true so it shows their favorites
     this.show = true;
     this.userService.read_Favorites().subscribe(data =>{
       this.favorites = data.map(e => {

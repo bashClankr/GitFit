@@ -37,12 +37,14 @@ export class SignupPage implements OnInit {
         displayName: current.name,
         photoURL: ""
       });
+      //creates unique user document with their id
       this.store.collection('Users').doc(user1.currentUser.uid).set({
         UserName: this.user.name,
         UID: user1.currentUser.uid,
         profilePictureURL: "",
         UserEmail: this.user.email
       });
+      //creates a favorites collection in user's unique collection
       this.store.collection('Users').doc(user1.currentUser.uid).set({
         Favorites: this.store.collection('Users/' + user1.currentUser.uid +'/Favorites').doc('fave1').set({
           WorkoutName: "hello",

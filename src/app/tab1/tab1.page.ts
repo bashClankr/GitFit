@@ -65,7 +65,10 @@ export class Tab1Page implements OnInit{
       record['Image'] = image;
       record['Workout'] = true;
       console.log(record);
+      //record is the data passed to create fields and name is to specify the document's name so there aren't duplicates
       this.userService.create_Favorite(record, name);
+      //when their account is created, it makes an empty document called 'fave1' so the collection can exist
+      //this is to delete it, probably not the best way but it works 
       if(this.count == 0){
         this.userService.delete_Favorite('fave1');
         this.count++;
