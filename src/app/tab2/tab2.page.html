@@ -29,7 +29,7 @@
   <ion-card ng-show="show" *ngFor="let item of favorites">
     <span>
       <ion-card>
-        <img src="/assets/exercise1.jpg" alt="Picture not available"/>
+        <img src={{item.Image}} alt="Picture not available"/>
         <ion-card>
           <h3 id="woDescript">{{item.Descript}}</h3>
           <div class="btn">

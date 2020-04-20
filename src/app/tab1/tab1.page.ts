@@ -59,7 +59,7 @@ export class Tab1Page implements OnInit{
       var record ={};
       var name = item.Name;
       var descript = item.Description;
-      var image = "image";
+      var image = item.Image;
       record['Name'] = name;
       record['Descript'] = descript;
       record['Image'] = image;
