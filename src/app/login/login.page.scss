@@ -3,8 +3,9 @@
 }
 
 #butts{
-    padding-left: 22%;
     padding-top: 6%;
+    padding-left: 35%;
+    padding-right: 35%;
 }
 #first{
     padding-right: 5%;
@@ -12,5 +13,21 @@
 
 #title{
     color: yellow;
-    padding-left: 20%;
+    text-align: center;
 }
+#home{
+    color: #ffde59;
+}
+ion-title{
+    text-align: center;
+}
+ion-button{
+    --color-activated: pink;
+}
+ion-card{
+    padding-top: 30px;
+}
+ion-header{
+    padding-bottom: 30px;
+}
+

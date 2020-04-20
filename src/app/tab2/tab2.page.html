@@ -11,24 +11,40 @@
   <div class="card">
     <div class="header">
       <div class="avatar">
-        <img src="/assets/person.jpg" alt="">
+        <img src="/assets/defaultavatar.png" alt="">
       </div>
     </div>
   </div>
   <div class="card-body">
     <div class="user-meta ion-text-center">
       <h3 class="username">{{afAuth.auth.currentUser.displayName}}</h3>
-      <h5 class="location">
-        <ion-label class="locationlabel">
-          <ion-icon slot="start" name="pin" size="large"></ion-icon>
-        </ion-label>
-        
-        Oxford, MS
-      </h5>
+      
     </div>
-    <ion-button (click)="favoriteAlert()" expand="full">
+    <ion-button shape="round" (click)="favoriteAlert()" expand="full">
       <ion-icon slot="start" name="star"></ion-icon>
-      Favorites</ion-button>
+      Show Favorites</ion-button>
     
   </div>
+  <!--when they click the "show favorites" button, it loops through their favorites collection and displays cards-->
+  <ion-card ng-show="show" *ngFor="let item of favorites">
+    <span>
+      <ion-card>
+        <img src="/assets/exercise1.jpg" alt="Picture not available"/>
+        <ion-card>
+          <h3 id="woDescript">{{item.Descript}}</h3>
+          <div class="btn">
+            <ion-button class="round ion-text-center" (click)="faveButton(item)">
+              <ion-icon name='star' slot="start"></ion-icon>
+              Favorite
+            </ion-button>
+          </div>
+          
+        </ion-card>
+        
+        <ion-card-header>
+          <ion-card-title id="workoutName">{{item.Name}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </span>
+  </ion-card>
 </ion-content>

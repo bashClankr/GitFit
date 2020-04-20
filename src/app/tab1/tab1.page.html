@@ -10,11 +10,11 @@
   <ion-card *ngFor="let item of workouts">
     <span>
       <ion-card>
-        <img src="/assets/exercise1.jpg" alt="Picture not available"/>
+        <img src={{item.Image}} alt="Picture not available"/>
         <ion-card>
-          <h3>{{item.Description}}</h3>
+          <h3 id="woDescript">{{item.Description}}</h3>
           <div class="btn">
-            <ion-button (click)="favoriteAlert()">
+            <ion-button (click)="faveButton(item)">
               <ion-icon name='star' slot="start"></ion-icon>
               Favorite
             </ion-button>
@@ -23,7 +23,7 @@
         </ion-card>
         
         <ion-card-header>
-          <ion-card-title>{{item.Name}}</ion-card-title>
+          <ion-card-title id="workoutName">{{item.Name}}</ion-card-title>
         </ion-card-header>
       </ion-card>
     </span>

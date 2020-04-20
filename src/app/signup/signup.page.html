@@ -1,32 +1,41 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Sign Up</ion-title>
+    <ion-button (click)="home()"><ion-icon slot="start" name="home"></ion-icon> Home</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1 id ='title'>Make a GitFit Account!</h1>
-  <div id= "creds">
-    <ion-item>
-      <ion-label stacked>Full Name</ion-label>
-      <ion-input placeholder="John Smith" [(ngModel)]="user.name"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input placeholder="Enter Email" [(ngModel)]="user.email"></ion-input>
-    </ion-item>
+  <ion-card>
+    <img src="../assets/GitFit.png">
+    <div>
+      <ion-card-title id='title'>Make a GitFit Account!</ion-card-title>
+      <ion-card-content>
+        <div id= "creds">
+          <ion-item>
+            <ion-label stacked>Full Name</ion-label>
+            <ion-input placeholder="John Smith" [(ngModel)]="user.name"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input placeholder="Enter Email" [(ngModel)]="user.email"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label stacked>Password</ion-label>
+            <ion-input type="password" placeholder='Enter Password' [(ngModel)]="user.password"></ion-input>
+          </ion-item>
+        </div>
+       
+        <div id='butts'>
+          <ion-button (click)="signUp()">
+            SIGN UP
+          </ion-button>
+      
+        </div>
+      </ion-card-content>
+    </div>
+  </ion-card>
   
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input type="password" placeholder='Enter Password' [(ngModel)]="user.password"></ion-input>
-    </ion-item>
-  </div>
- 
-  <div id='butts'>
-    <ion-button id ='first' ion-button margin-right (click)="signUp()">
-      SIGN UP
-    </ion-button>
-
-  </div>
 </ion-content>
