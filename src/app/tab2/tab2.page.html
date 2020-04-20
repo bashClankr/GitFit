@@ -20,7 +20,7 @@
       <h3 class="username">{{afAuth.auth.currentUser.displayName}}</h3>
       
     </div>
-    <ion-button shape="round" (click)="favoriteAlert()" expand="full">
+    <ion-button shape="round" (click)="faveButton()" expand="full">
       <ion-icon slot="start" name="star"></ion-icon>
       Show Favorites</ion-button>
     
@@ -33,7 +33,7 @@
         <ion-card>
           <h3 id="woDescript">{{item.Descript}}</h3>
           <div class="btn">
-            <ion-button class="round ion-text-center" (click)="faveButton(item)">
+            <ion-button class="round ion-text-center" (click)="faveButton()">
               <ion-icon name='star' slot="start"></ion-icon>
               Favorite
             </ion-button>

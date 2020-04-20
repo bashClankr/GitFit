@@ -25,7 +25,7 @@ export class Tab2Page {
     this.show = false;
   }
 
-  favoriteAlert(){
+  faveButton(){
     //on click, show = true so it shows their favorites
     this.show = true;
     this.userService.read_Favorites().subscribe(data =>{
