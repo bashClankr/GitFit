@@ -23,6 +23,11 @@ export class Tab1Page implements OnInit{
   workoutName: string;
   description: string;
   image: string;
+
+  //seach stuff
+  results:any;
+  term:any;
+  show:boolean;
   
 
 
@@ -39,19 +44,20 @@ export class Tab1Page implements OnInit{
     
 
     ngOnInit() {
-      this.userService.read_Workouts().subscribe(data =>{
-        this.workouts = data.map(e => {
-          return{
-            id: e.payload.doc.id,
-            isEdit: false,
-            Name: e.payload.doc.data()['Name'],
-            Description: e.payload.doc.data()['Description'],
-            Image: e.payload.doc.data()['Image'],
-
-          };
-        })
-        console.log(this.workouts);
-      });
+      this.show=false;
+        this.userService.read_Workouts().subscribe(data =>{
+          this.workouts = data.map(e => {
+            return{
+              id: e.payload.doc.id,
+              isEdit: false,
+              Name: e.payload.doc.data()['Name'],
+              Description: e.payload.doc.data()['Description'],
+              Image: e.payload.doc.data()['Image'],
+  
+            };
+          })
+          console.log(this.workouts);
+        });
 
     }
     //Adding workout to favorites
@@ -96,10 +102,39 @@ export class Tab1Page implements OnInit{
       
     }
     search(){ 
-      var test= (<HTMLInputElement>document.getElementById("search")).value;
-      console.log(test);
-      alert("App will search and display results matching: " + test);
+        this.show=true;
+        this.term= (<HTMLInputElement>document.getElementById("search")).value;
+
+      
+        var formatTerm=this.term.toLowerCase()
+        .split(' ')
+        .map(function(word) {
+            return word[0].toUpperCase() + word.substr(1);
+        })
+        .join(' ');
+  
+  
+        console.log(formatTerm);
+  
+        this.userService.search_Workouts(formatTerm).subscribe(data =>{
+          this.results = data.map(e => {
+            return{
+              id: e.payload.doc.id,
+              isEdit: false,
+              Name: e.payload.doc.data()['Name'],
+              Description: e.payload.doc.data()['Description'],
+              Image: e.payload.doc.data()['Image'],
+  
+            };
+          })
+          console.log(this.results);
+          this.workouts=this.results;
+        });
+     
+      
     }
+    
+
     
 }
 
