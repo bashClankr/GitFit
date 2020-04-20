@@ -2,6 +2,7 @@
   <ion-toolbar>
     <br>
     <ion-searchbar placeholder="Search Workouts" id="search" (keyup.enter)="search()"></ion-searchbar>
+    <ion-button *ngIf="show" (click)="ngOnInit()">Clear</ion-button>
   </ion-toolbar>
 </ion-header>
 

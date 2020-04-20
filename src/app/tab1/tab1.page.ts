@@ -27,6 +27,7 @@ export class Tab1Page implements OnInit{
   //seach stuff
   results:any;
   term:any;
+  show:boolean;
   
 
 
@@ -43,6 +44,7 @@ export class Tab1Page implements OnInit{
     
 
     ngOnInit() {
+      this.show=false;
         this.userService.read_Workouts().subscribe(data =>{
           this.workouts = data.map(e => {
             return{
@@ -100,8 +102,9 @@ export class Tab1Page implements OnInit{
       
     }
     search(){ 
-
+        this.show=true;
         this.term= (<HTMLInputElement>document.getElementById("search")).value;
+
       
         var formatTerm=this.term.toLowerCase()
         .split(' ')
@@ -130,6 +133,8 @@ export class Tab1Page implements OnInit{
      
       
     }
+    
+
     
 }
 
