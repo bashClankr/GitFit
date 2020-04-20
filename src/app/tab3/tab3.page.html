@@ -14,7 +14,6 @@
       <ion-label color="white" slot="start">Push Notifications</ion-label>
       <ion-toggle slot="end" name="pushnotifs" checked></ion-toggle>
     </ion-item>
-    
     <ion-item>
       <ion-label color="white" slot="start">Recommendations</ion-label>
       <ion-toggle slot="end" name="recommendations" checked></ion-toggle>
@@ -27,13 +26,28 @@
       <ion-label color="white" slot="start">About</ion-label>
       <ion-button (click)="aboutAlert()">See About information</ion-button>
     </ion-item>
-    
-
-    
-
-  
    
   </ion-list>
+  <br>
+  <br>
+  <form *ngIf="isAdmin()">
+    <ion-list>
+      <ion-item >
+        <ion-label position="stacked" color="white" slot="start">Workout Name</ion-label>
+        <ion-input id='woName'></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label position="stacked" color="white" slot="start">Workout Description</ion-label>
+        <ion-input id='woDescr'></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label position="stacked" color="white" slot="start">Workout Image Link</ion-label>
+        <ion-input id='woImage'></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="addWork()">Submit</ion-button>
+  </form>
+  
   
 
   

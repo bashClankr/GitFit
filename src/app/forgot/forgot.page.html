@@ -9,7 +9,7 @@
   <ion-card>
     <img src="../assets/GitFit.png">
     <div>
-      <ion-card-title id='title'>Send a Password Reset Link to Your Email</ion-card-title>
+      <ion-card-title id='title' class="text-wrap">Send a Password Reset Link to Your Email</ion-card-title>
       <ion-card-content>
         <div id= "creds">
           <ion-item>
@@ -18,10 +18,9 @@
           </ion-item>
         </div>
     
-        <div id='butts'>
-
-          <ion-button class="align-center" color="secondary"(click)="reset()">
-            FORGOT PASSOWRD
+        <div>
+          <ion-button id='btn' class="align-center" color="secondary"(click)="reset()">
+            FORGOT PASSWORD
           </ion-button>
         </div>
       </ion-card-content>
