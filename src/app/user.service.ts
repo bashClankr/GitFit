@@ -21,6 +21,7 @@ export class UserService {
     
     user1 = this.afAuth.auth;
 
+
     getUID() {
         return this.user1.currentUser.uid;
     }
@@ -67,6 +68,10 @@ export class UserService {
     delete_Favorite(record_id){
         
         this.firestore.doc('Users/' + this.user1.currentUser.uid + '/Favorites/' + record_id).delete();
+    }
+
+    search_Workouts(workout_name){
+        return this.firestore.collection('Workouts', ref => ref.where('Name', '==', workout_name)).snapshotChanges();
     }
     
 }
