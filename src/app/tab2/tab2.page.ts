@@ -44,4 +44,7 @@ export class Tab2Page {
     });
     
   }
+  faveButton(item:any){
+    this.userService.delete_Favorite(item.id);
+  }
 }
