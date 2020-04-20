@@ -20,7 +20,7 @@
       <h3 class="username">{{afAuth.auth.currentUser.displayName}}</h3>
       
     </div>
-    <ion-button shape="round" (click)="favoriteAlert()" expand="full">
+    <ion-button shape="round" (click)="faveButton()" expand="full">
       <ion-icon slot="start" name="star"></ion-icon>
       Show Favorites</ion-button>
     
@@ -33,9 +33,19 @@
         <ion-card>
           <h3 id="woDescript">{{item.Descript}}</h3>
           <div class="btn">
+<<<<<<< HEAD
             <ion-button class="round ion-text-center" (click)="faveButton(item)">
               <ion-icon name='trash' slot="start"></ion-icon>
               Remove
+||||||| merged common ancestors
+            <ion-button class="round ion-text-center" (click)="faveButton(item)">
+              <ion-icon name='star' slot="start"></ion-icon>
+              Favorite
+=======
+            <ion-button class="round ion-text-center" (click)="faveButton()">
+              <ion-icon name='star' slot="start"></ion-icon>
+              Favorite
+>>>>>>> 734e25b16c4b1ed0255f3eca5795d76932ee3aa7
             </ion-button>
           </div>
           
