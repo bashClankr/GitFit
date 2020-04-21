@@ -10,9 +10,11 @@ interface user {
     uid: string
 }
 
+
 @Injectable()
 export class UserService {
     private user: user; 
+    id="";
     
     constructor(
         private firestore: AngularFirestore, 
@@ -86,8 +88,20 @@ export class UserService {
     }
     update_Work(name, des, img){
         //if(img===null){
-            this.firestore.collection('Workouts', ref => ref.where('Name', '==', name)).doc().update({Description:des});
+            //this.firestore.collection('Workouts', ref => ref.where('Name', '==', name)).doc().update({Description:des});
        // }
       // this.firestore.collection('Workouts', ref => ref.where('Name', '==', name)).doc().update({Description:des,Image:img});
+      console.log(name);
+      this.firestore.collection("Workouts", ref => ref.where('Name', '==', name))
+     .get().toPromise()
+     .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          console.log(doc.id, " => ", doc.data());
+          this.id=doc.id;
+          // Build doc ref from doc.id
+          
+      })
+ })
+      this.firestore.collection('Workouts').doc(this.id).update({Description:des});
     }
 }
