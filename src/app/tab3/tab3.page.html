@@ -46,6 +46,24 @@
     </ion-list>
     <ion-button (click)="addWork()">Submit</ion-button>
   </form>
+  <form *ngIf="isAdmin()">
+    <ion-label>Edit Workout</ion-label>
+    <ion-list>
+      <ion-item >
+        <ion-label position="stacked" color="white" slot="start">Workout to Edit</ion-label>
+        <ion-input id='edName'></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label position="stacked" color="white" slot="start">New Description</ion-label>
+        <ion-input id='edDescr'></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label position="stacked" color="white" slot="start">New Image Link</ion-label>
+        <ion-input id='edImage'></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="editWork()">Submit</ion-button>
+  </form>
   
   
 
