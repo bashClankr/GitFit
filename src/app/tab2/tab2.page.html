@@ -13,7 +13,7 @@
     <div class="card-body">
       <div *ngFor="let item of users" class="user-meta ion-text-center">
         <ion-item *ngIf="this.userService.getUID() == item.id">
-          <ion-label *ngIf="this.userService.getUID() == item.id">Name: {{item.name}} </ion-label>
+          <ion-label *ngIf="this.userService.getUID() == item.id">Name: {{afAuth.auth.currentUser.displayName}} </ion-label>
         </ion-item>
         
         <ion-item *ngIf="this.userService.getUID() == item.id">

@@ -86,7 +86,7 @@ db = firebase.firestore();
 
   async editName() {
     const alert = await this.alertCtrl.create({
-      header: 'Edit email',
+      header: 'Edit Name',
       inputs: [
         {
           name: 'Name',
