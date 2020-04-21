@@ -141,5 +141,12 @@ db = firebase.firestore();
     this.userService.create_NewWorkout(record);
   }
 
+  editWork(){
+    var name = (<HTMLIonInputElement>document.getElementById('edName')).value;
+    var des = (<HTMLIonInputElement>document.getElementById('edDescr')).value;
+    var img = (<HTMLIonInputElement>document.getElementById('edImage')).value;
+    this.userService.update_Work(name,des,img);
+  }
+
 }
 

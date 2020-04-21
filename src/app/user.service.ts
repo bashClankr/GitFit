@@ -84,5 +84,10 @@ export class UserService {
     update_Name(name){
         this.firestore.collection("Users").doc(this.user1.currentUser.uid).update({UserName:name});
     }
-    
+    update_Work(name, des, img){
+        //if(img===null){
+            this.firestore.collection('Workouts', ref => ref.where('Name', '==', name)).doc().update({Description:des});
+       // }
+      // this.firestore.collection('Workouts', ref => ref.where('Name', '==', name)).doc().update({Description:des,Image:img});
+    }
 }
