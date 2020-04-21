@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from '../user.service';
 
 
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -17,12 +18,15 @@ export class Tab2Page implements OnInit {
     public userService: UserService
     ) {}
   show = false;
+  reveal=false;
   
   ngOnInit(){
     const user = this.afAuth.auth.currentUser.displayName
     console.log(user);
     //initializes show to false when page loads so favorites aren't displayed until they ask
     this.show = false;
+    this.reveal=false;
+
   }
 
   faveButton(){
@@ -42,7 +46,7 @@ export class Tab2Page implements OnInit {
       console.log(this.favorites);
       console.log(this.show);
     });
-    
+    this.reveal=true;
   }
   deleteButton(item:any){
     this.userService.delete_Favorite(item.id);
