@@ -21,14 +21,14 @@ import * as firebase from 'firebase/app';
 })
 export class Tab3Page implements OnInit{
   
- constructor(
-   public afAuth :AngularFireAuth,
-   private router: Router,
-   public actionSC: ActionSheetController,
-   private userService: UserService
-   ){}
-   showItem = false;
-   db = firebase.firestore();
+constructor(
+  public afAuth :AngularFireAuth,
+  private router: Router,
+  public actionSC: ActionSheetController,
+  private userService: UserService
+  ){}
+showItem = false;
+db = firebase.firestore();
 
   ngOnInit(){
     this.isAdmin();
@@ -54,7 +54,7 @@ export class Tab3Page implements OnInit{
     await actionSheet.present();
   }
   aboutAlert(){
-    alert("Austin: \n*Set up Firebase Authentication\n*Added Login Page and Sign Up Page\n*Added display name function that can change on account page \n\n \nIsabella: \n*Connected to firestore database\n*Pulled data from database and displayed using for loop on homepage\n*Followed Ionic 4 CRUD Operations tutorial")
+    alert("Made by Austin and Isabella");
   }
   logout(){
     this.afAuth.auth.signOut();
@@ -64,7 +64,7 @@ export class Tab3Page implements OnInit{
     var record = {};
     record['Name'] = (<HTMLIonInputElement>document.getElementById('woName')).value;
     record['Description'] = (<HTMLIonInputElement>document.getElementById('woDescr')).value;
-    record['Image'] = (<HTMLIonInputElement>document.getElementById('woImage')).value + ".jpg";
+    record['Image'] = (<HTMLIonInputElement>document.getElementById('woImage')).value;
     console.log(record);
     this.userService.create_NewWorkout(record);
   }
