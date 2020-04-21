@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button (click)="logout()">Log Out<ion-icon name="log-out-outline"></ion-icon></ion-button>
     <ion-title>
       Settings
     </ion-title>
@@ -11,20 +10,20 @@
   <ion-list>
   
     <ion-item>
-      <ion-label color="white" slot="start">Push Notifications</ion-label>
-      <ion-toggle slot="end" name="pushnotifs" checked></ion-toggle>
+      <!-- <ion-label color="white" (click)="editProfile()">Edit Profile</ion-label> -->
+      <ion-label size='large' (click)="editEmail()"><h1>Change Email</h1>  </ion-label>
     </ion-item>
     <ion-item>
-      <ion-label color="white" slot="start">Recommendations</ion-label>
-      <ion-toggle slot="end" name="recommendations" checked></ion-toggle>
+      <!-- <ion-label color="white" (click)="editProfile()">Edit Profile</ion-label> -->
+      <ion-label size='large' (click)="editName()"><h1>Edit Name</h1> </ion-label>
     </ion-item>
     <ion-item>
-      <ion-label color="white" slot="start">Edit Profile</ion-label>
-      <ion-button (click)="editProfile()">Edit Profile</ion-button>
+      <!-- <ion-label color="white" s (click)="aboutAlert()">See About information</ion-label> -->
+      <ion-label size='large' (click)="aboutAlert()"><h1>About</h1></ion-label>
     </ion-item>
     <ion-item>
-      <ion-label color="white" slot="start">About</ion-label>
-      <ion-button (click)="aboutAlert()">See About information</ion-button>
+      <!-- <ion-label color="white" (click)="logout()"><ion-icon name="log-out-outline"></ion-icon> Log Out</ion-label> -->
+      <ion-label size='large' (click)="logout()"><h1><ion-icon name="log-out-outline"></ion-icon>  Sign Out</h1></ion-label>
     </ion-item>
    
   </ion-list>
@@ -50,5 +49,7 @@
   
   
 
-  
+  <h4>Privacy Policy</h4>
+  <h4>Terms of Use</h4>
+
 </ion-content>

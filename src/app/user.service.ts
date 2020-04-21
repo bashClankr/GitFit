@@ -73,5 +73,13 @@ export class UserService {
     search_Workouts(workout_name){
         return this.firestore.collection('Workouts', ref => ref.where('Name', '==', workout_name)).snapshotChanges();
     }
+
+    update_Email(email){
+        this.firestore.collection("Users").doc(this.user1.currentUser.uid).update({UserEmail:email});
+    }
+
+    update_Name(name){
+        this.firestore.collection("Users").doc(this.user1.currentUser.uid).update({UserName:name});
+    }
     
 }
