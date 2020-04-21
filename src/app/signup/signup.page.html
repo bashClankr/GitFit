@@ -11,7 +11,22 @@
             <ion-label stacked>Full Name</ion-label>
             <ion-input placeholder="John Smith" [(ngModel)]="user.name"></ion-input>
           </ion-item>
-      
+          <ion-item>
+            <ion-label stacked>Gender</ion-label>
+            <ion-select [(ngModel)]="user.gender">
+              <ion-select-option value="Male">Male</ion-select-option>
+              <ion-select-option value="Female">Female</ion-select-option>
+              <ion-select-option value="N/A">Prefer not to say</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Experience Level</ion-label>
+            <ion-select [(ngModel)]="user.experience">
+              <ion-select-option value="Beginner">Beginner</ion-select-option>
+              <ion-select-option value="Amateur">Amateur</ion-select-option>
+              <ion-select-option value="Pro">Pro</ion-select-option>
+            </ion-select>
+          </ion-item>
           <ion-item>
             <ion-label stacked>Email</ion-label>
             <ion-input placeholder="Enter Email" [(ngModel)]="user.email"></ion-input>

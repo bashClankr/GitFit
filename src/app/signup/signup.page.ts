@@ -10,6 +10,8 @@ interface test{
   email?:string;
   password?:string;
   name?:string;
+  gender?:string;
+  experience?:string;
 }
 
 @Component({
@@ -42,7 +44,9 @@ export class SignupPage implements OnInit {
         UserName: this.user.name,
         UID: user1.currentUser.uid,
         profilePictureURL: "",
-        UserEmail: this.user.email
+        UserEmail: this.user.email,
+        Gender: this.user.gender,
+        Experience: this.user.experience
       });
       //creates a favorites collection in user's unique collection
       this.store.collection('Users').doc(user1.currentUser.uid).set({

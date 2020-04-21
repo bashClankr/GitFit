@@ -11,6 +11,9 @@ ion-content {
 ion-toolbar {
   --background: transparent;
 }
+ion-item{
+  text-align: center;
+}
 .card {
   margin: 0 auto;
   --background: transparent;
@@ -40,12 +43,11 @@ ion-toolbar {
 }
 .card-body {
   background-color: gray;
-  padding: 30px;
   height: calc(100vh - (200px + 56px));
   overflow: hidden;
 
   .user-meta {
-      padding-top: 40px;
+      
 
       .username {
           font-size: 24px;

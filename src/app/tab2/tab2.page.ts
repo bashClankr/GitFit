@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from '../user.service';
+import * as firebase from 'firebase/app';
+import { userInfo } from 'os';
 
 
 
@@ -11,6 +13,9 @@ import { UserService } from '../user.service';
 })
 export class Tab2Page implements OnInit {
   favorites: any;
+  users: any;
+ 
+  
 
   
   constructor(
@@ -18,14 +23,29 @@ export class Tab2Page implements OnInit {
     public userService: UserService
     ) {}
   show = false;
-  reveal=false;
+  reveal = false;
+  
   
   ngOnInit(){
     const user = this.afAuth.auth.currentUser.displayName
     console.log(user);
     //initializes show to false when page loads so favorites aren't displayed until they ask
     this.show = false;
-    this.reveal=false;
+    this.reveal = false;
+    var db = firebase.firestore();
+    this.userService.read_UserInfo().subscribe(data => {
+      this.users = data.map(e => {
+        return{ 
+          id: e.payload.doc.id,
+          gender: e.payload.doc.data()['Gender'],
+          exp: e.payload.doc.data()['Experience'],
+          name: e.payload.doc.data()['UserName']
+        }
+      })
+    })
+    console.log(this.users);             
+  
+    
 
   }
 

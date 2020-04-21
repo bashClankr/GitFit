@@ -73,5 +73,8 @@ export class UserService {
     search_Workouts(workout_name){
         return this.firestore.collection('Workouts', ref => ref.where('Name', '==', workout_name)).snapshotChanges();
     }
+    read_UserInfo(){
+        return this.firestore.collection('Users').snapshotChanges();
+    }
     
 }
