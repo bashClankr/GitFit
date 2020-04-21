@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from '../user.service';
 import * as firebase from 'firebase/app';
-import { userInfo } from 'os';
 
 
 
