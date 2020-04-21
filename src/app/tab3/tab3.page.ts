@@ -145,7 +145,11 @@ db = firebase.firestore();
     var name = (<HTMLIonInputElement>document.getElementById('edName')).value;
     var des = (<HTMLIonInputElement>document.getElementById('edDescr')).value;
     var img = (<HTMLIonInputElement>document.getElementById('edImage')).value;
+    console.log(name);
     this.userService.update_Work(name,des,img);
+    name=null;
+    des=null;
+    img=null;
   }
 
 }
