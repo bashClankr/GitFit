@@ -76,5 +76,13 @@ export class UserService {
     read_UserInfo(){
         return this.firestore.collection('Users').snapshotChanges();
     }
+
+    update_Email(email){
+        this.firestore.collection("Users").doc(this.user1.currentUser.uid).update({UserEmail:email});
+    }
+
+    update_Name(name){
+        this.firestore.collection("Users").doc(this.user1.currentUser.uid).update({UserName:name});
+    }
     
 }

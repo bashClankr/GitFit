@@ -7,6 +7,8 @@ import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 import * as firebase from 'firebase/app';
+import { AlertController } from '@ionic/angular';
+
 
 
 
@@ -25,7 +27,8 @@ constructor(
   public afAuth :AngularFireAuth,
   private router: Router,
   public actionSC: ActionSheetController,
-  private userService: UserService
+  private userService: UserService,
+  private alertCtrl: AlertController
   ){}
 showItem = false;
 db = firebase.firestore();
@@ -44,7 +47,7 @@ db = firebase.firestore();
     const actionSheet = await this.actionSC.create({
       header: 'Profile',
       buttons: [
-        {text: 'Change Profile Photo',
+        {text: 'Change ',
          handler: () => {
            console.log('Change photo clicked');
          }
@@ -53,6 +56,75 @@ db = firebase.firestore();
     });
     await actionSheet.present();
   }
+
+  async editEmail() {
+    const alert = await this.alertCtrl.create({
+      header: 'Edit email',
+      inputs: [
+        {
+          name: 'Email',
+          placeholder: this.afAuth.auth.currentUser.email
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Submit',
+          handler: inputs => {
+            if (inputs.Email)
+              this.userService.update_Email(inputs.Email);
+              this.afAuth.auth.currentUser.updateEmail(inputs.Email);
+          }
+        }
+      ]
+    });
+   await alert.present();
+  }
+
+  async editName() {
+    const alert = await this.alertCtrl.create({
+      header: 'Edit email',
+      inputs: [
+        {
+          name: 'Name',
+          placeholder: this.afAuth.auth.currentUser.displayName
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Submit',
+          handler: inputs => {
+            if (inputs.Email)
+              this.userService.update_Name(inputs.Name);
+              this.afAuth.auth.currentUser.updateProfile({
+                displayName: inputs.Name,
+              }).then(function() {
+                // "Jane Q. User"
+              
+                // "https://example.com/jane-q-user/profile.jpg"
+                
+              }, function(error) {
+                // An error happened.
+              });
+          }
+        }
+      ]
+    }
+    );
+   await alert.present();
+
+  }
+
+
+
+
   aboutAlert(){
     alert("Made by Austin and Isabella");
   }
