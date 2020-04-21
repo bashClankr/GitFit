@@ -14,8 +14,8 @@ interface user {
 @Injectable()
 export class UserService {
     private user: user; 
-    id="";
-    
+    results:any;  
+    id:any;  
     constructor(
         private firestore: AngularFirestore, 
         public afAuth: AngularFireAuth
@@ -87,21 +87,32 @@ export class UserService {
         this.firestore.collection("Users").doc(this.user1.currentUser.uid).update({UserName:name});
     }
     update_Work(name, des, img){
-        //if(img===null){
-            //this.firestore.collection('Workouts', ref => ref.where('Name', '==', name)).doc().update({Description:des});
-       // }
-      // this.firestore.collection('Workouts', ref => ref.where('Name', '==', name)).doc().update({Description:des,Image:img});
-      console.log(name);
-      this.firestore.collection("Workouts", ref => ref.where('Name', '==', name))
-     .get().toPromise()
-     .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-          console.log(doc.id, " => ", doc.data());
-          this.id=doc.id;
-          // Build doc ref from doc.id
-          
+        
+    console.log(name);
+      var sesh = this.firestore.collection("Workouts", ref => ref.where('Name', '==', name)).snapshotChanges();
+      sesh.subscribe(data =>{
+        this.results = data.map(e => {
+          return{
+            id: e.payload.doc.id,
+            
+          };
+        })
+        this.id = this.results[0].id;
       })
- })
-      this.firestore.collection('Workouts').doc(this.id).update({Description:des});
+
+
+        if(img==="" && des!=''){
+            this.firestore.collection('Workouts').doc(this.id).update({Description:des});
+
+        }else if(img!="" && des!=""){
+            this.firestore.collection('Workouts').doc(this.id).update({Description:des, Image:img});
+
+        }else if(img!='' && des===''){
+            this.firestore.collection('Workouts').doc(this.id).update({Image:img});
+
+        }
+        this.id =null;
+        this.results=null;
+
     }
 }
