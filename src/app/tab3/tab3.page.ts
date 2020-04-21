@@ -90,7 +90,7 @@ db = firebase.firestore();
       inputs: [
         {
           name: 'Name',
-          placeholder: this.afAuth.auth.currentUser.displayName
+          placeholder: "Enter Name"
         }
       ],
       buttons: [
@@ -102,7 +102,7 @@ db = firebase.firestore();
           text: 'Submit',
           handler: inputs => {
             if (inputs.Email)
-              this.userService.update_Name(inputs.Name);
+              
               this.afAuth.auth.currentUser.updateProfile({
                 displayName: inputs.Name,
               }).then(function() {
@@ -113,6 +113,7 @@ db = firebase.firestore();
               }, function(error) {
                 // An error happened.
               });
+              this.userService.update_Name(inputs.Name);
           }
         }
       ]

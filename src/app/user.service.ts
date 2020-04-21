@@ -84,7 +84,9 @@ export class UserService {
     }
 
     update_Name(name){
-        this.firestore.collection('Users').doc(this.user1.currentUser.uid).update({UserName:name});
+        this.firestore.collection('Users').doc(this.user1.currentUser.uid).update({
+            UserName: name
+        });
     }
     update_Work(name, des, img){
         
