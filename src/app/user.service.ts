@@ -43,7 +43,7 @@ export class UserService {
     
     //deletes workout from database
     delete_Workout(record_id) {
-    this.firestore.doc('Workouts/' + record_id).delete();
+        this.firestore.doc('Workouts/' + record_id).delete();
     }
 
     //creates favorite in user's personal collection

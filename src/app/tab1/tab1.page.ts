@@ -101,6 +101,17 @@ export class Tab1Page implements OnInit{
       }
       
     }
+    isAdmin(){
+      if(this.afAuth.auth.currentUser.displayName == "Admin"){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  deleteWork(item){
+    this.userService.delete_Workout(item.id);
+  }
+
     search(){ 
         this.show=true;
         this.term= (<HTMLInputElement>document.getElementById("search")).value;

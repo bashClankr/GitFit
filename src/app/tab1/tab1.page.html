@@ -19,6 +19,9 @@
               <ion-icon name='star' slot="start"></ion-icon>
               Favorite
             </ion-button>
+            <ion-button *ngIf="isAdmin(item)" (click)="deleteWork(item)">
+              Delete Workout
+            </ion-button>
           </div>
           
         </ion-card>
